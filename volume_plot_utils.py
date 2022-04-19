@@ -14,3 +14,4 @@ def displayVolume(vol, fileName="display.html", brightness=1, threshold=1, theta
 
   htmlTemplate = open("template.html",'r').read()
   htmlTxt = Template(htmlTemplate).safe_substitute(htmlStats)
+  open(fileName,'w').write(htmlTxt)
