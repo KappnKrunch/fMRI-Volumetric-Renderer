@@ -6,6 +6,9 @@ Data is pre-processed and then attached to the html template document, the rende
 renderer that can be used to visualize fMRI data in a browser as well as in the output of a jupyter notebook.
 
 ## Python Render Pipeline Usage
+```console
+pip install fMRI-Volumetric-Renderer
+```
 ```python
 import nibabel as nib
 import torch
