@@ -33,6 +33,7 @@ see volume_plot_utils.py for more information
 
 
 Interactive example:
-https://colab.research.google.com/drive/1-TFx4eKrH_AjrqJqlUPYlfypr8GrBRoD?usp=sharing
+https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb
+
 
 ![Gif showing the renderer](view.gif "MRI view")
