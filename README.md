@@ -7,8 +7,6 @@ renderer that can be used to visualize fMRI data in a browser as well as in the 
 
 ## Python Render Pipeline Usage
 Get the package from the pip repository using the python pip command
-
-https://pypi.org/project/fMRI-Volumetric-Renderer/
 ```console
 pip install fMRI-Volumetric-Renderer
 ```
