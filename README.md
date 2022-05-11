@@ -32,7 +32,7 @@ The example python shows usage with pytroch and nibabel but html displays can be
 see volume_plot_utils.py for more information
 
 
-Interactive example: [Here] (https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb "interactive link")
+Interactive example: [Here](https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb "interactive link")
 
 
 ![Gif showing the renderer](view.gif "MRI view")
