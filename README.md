@@ -15,7 +15,7 @@ Display volume from file
 import nibabel as nib
 import torch
 
-from volume_plot_utils import displayVolume
+from volume_plot_utils import plotter
 
 #load an example nifti file
 brainData = nib.load("data/sub-0x/func/subject-data-file.nii.gz")
@@ -24,7 +24,7 @@ brainData = nib.load("data/sub-0x/func/subject-data-file.nii.gz")
 activationSequence = torch.tensor(brainData.get_fdata().T)
 
 #use the displayVolume function to display the volumetric data in ipynb
-displayVolume(activationSequence)
+plotter.displayVolume(activationSequence)
 ```
 
 ## General HTML Template Usage
@@ -32,8 +32,7 @@ The example python shows usage with pytroch and nibabel but html displays can be
 see volume_plot_utils.py for more information
 
 
-Interactive example:
-https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb
+Interactive example: [Here] (https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb)
 
 
 ![Gif showing the renderer](view.gif "MRI view")
