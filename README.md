@@ -29,7 +29,7 @@ plotter.displayVolume(activationSequence)
 
 ## General HTML Template Usage
 The example python shows usage with pytroch and nibabel but html displays can be created from a template by substituting keywords from the template file:
-see volume_plot_utils.py for more information
+see plotter.py for more information
 
 
 Interactive example: [Here](https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb "interactive link")
