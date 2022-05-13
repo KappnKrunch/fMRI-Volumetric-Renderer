@@ -5,6 +5,8 @@ This project presents a method for visualizing volumetric MRI and fMRI data base
 Data is pre-processed and then attached to the html template document, the renderer itself is written in html. This method presents a lightweight 
 renderer that can be used to visualize fMRI data in the output of a jupyter notebook.
 
+Interactive example: [Here](https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb "interactive link")
+
 ## Python Render Pipeline Usage
 Get the package from the pip repository using the python pip command
 ```console
@@ -30,9 +32,6 @@ plotter.displayVolume(activationSequence)
 ## General HTML Template Usage
 The example python shows usage with pytroch and nibabel but html displays can be created from a template by substituting keywords from the template file:
 see plotter.py for more information
-
-
-Interactive example: [Here](https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb "interactive link")
 
 
 ![Gif showing the renderer](view.gif "MRI view")
