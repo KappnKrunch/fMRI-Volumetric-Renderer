@@ -35,4 +35,5 @@ see plotter.py for more information
 
 
 ![Gif showing the renderer](view.gif "MRI view")
+
 Interactive example: [Here](https://colab.research.google.com/github/KappnKrunch/fMRI-Volumetric-Renderer/blob/main/Volumetric_Render_Pipeline.ipynb "interactive link")
