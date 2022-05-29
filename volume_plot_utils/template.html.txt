@@ -22,11 +22,11 @@
   <body>
     <canvas id = "canvas" width = "400" height = "400"> No HTML5 support. </canvas>
     <script id = "volume renderer">       
-      let vWidth = $INSERT_VOLUME_WIDTH_HERE;
-      let vDepth = $INSERT_VOLUME_DEPTH_HERE;
-      let vHeight  = $INSERT_VOLUME_HEIGHT_HERE;
-      let frames = $INSERT_FRAMES_HERE;
-      let totalFrames = $INSERT_FRAME_COUNT_HERE;
+      const vWidth = $INSERT_VOLUME_WIDTH_HERE;
+      const vDepth = $INSERT_VOLUME_DEPTH_HERE;
+      const vHeight  = $INSERT_VOLUME_HEIGHT_HERE;
+      const frames = $INSERT_FRAMES_HERE;
+      const totalFrames = $INSERT_FRAME_COUNT_HERE;
       let framesPerSecond = $INSERT_FPS_HERE;
       let slice, nextSlice;
       let slice1DUInt8, nextSlice1DUInt8;
@@ -84,7 +84,7 @@
       "",
       "int World2Index(vec3 ray)",
       "{",    
-      "  return int(floor(ray.x) + floor(ray.y)*floor(vWidth) + floor(ray.z)*floor(vWidth*vDepth));",
+      "  return int(floor(ray.x)) + int(floor(ray.y))*int(floor(vWidth)) + int(floor(ray.z))*int(floor(vWidth*vDepth));",
       "}",
       "",
       "bool InBounds(vec3 ray)",
@@ -99,7 +99,7 @@
       "vec3 DistanceFrom(vec3 p, vec3 d)",
       "{",
       "  vec3 DF;",
-      "  float smallNum = 0.001;",
+      "  float smallNum = 0.0001;",
       "  ",
       "  DF.x = (d.x>0.0 ? floor(p.x+1.0)-p.x+smallNum : (d.x<0.0 ? p.x-ceil(p.x-1.0)+smallNum : 2.0));",
       "  DF.y = (d.y>0.0 ? floor(p.y+1.0)-p.y+smallNum : (d.y<0.0 ? p.y-ceil(p.y-1.0)+smallNum : 2.0));",
@@ -189,7 +189,7 @@
       function sqrFloor(x){
         let y = 2;
         while(Math.ceil(x/(y*y) > 1)) y *= 2;
-        console.log(y);
+
         return y;
       };
 
@@ -207,7 +207,7 @@
           slice1DUInt8[4*index+0] = v;
           slice1DUInt8[4*index+1] = v;
           slice1DUInt8[4*index+2] = v;
-          slice1DUInt8[4*index+3] = 255;
+          slice1DUInt8[4*index+3] = v;
         });
         
         nextSlice.forEach((element,index) => { 
@@ -216,7 +216,7 @@
           nextSlice1DUInt8[4*index+0] = v;
           nextSlice1DUInt8[4*index+1] = v;
           nextSlice1DUInt8[4*index+2] = v;
-          nextSlice1DUInt8[4*index+3] = 255;
+          nextSlice1DUInt8[4*index+3] = v;
         });
 
         sliceTex = gl.createTexture();
@@ -250,7 +250,10 @@
 
         console.log("starting...");
 
-        if(!gl) gl = canvas.getContext("expiremental-webgl");
+        if(!gl) { 
+          gl = canvas.getContext("expiremental-webgl"); 
+          console.log("using expirimental-webgl");
+        }
         if(!gl) { console.log("webgl is not supported :("); return; }      
 
         gl.clearColor(0.75,0.85,0.8,1.0);
@@ -325,7 +328,7 @@
           2, //number of elements per attribute
           gl.FLOAT,
           gl.FALSE, //is normalized
-          4*Float32Array.BYTES_PER_ELEMENT, //size of vertex
+          4*Float32Array.BYTES_PER_ELEMENT,  //size of vertex
           2*Float32Array.BYTES_PER_ELEMENT );//offset
 
         gl.enableVertexAttribArray(positionAttribLocation);
@@ -367,7 +370,7 @@
         
         let shiftKey = false;
         let ctrlKey = false;
-        window.onwheel = function(event) {
+        canvas.onwheel = function(event) {
           if(shiftKey){
             threshold = Math.max(Math.min(threshold + 0.01*event.deltaY, 5),0.0001);
           }
@@ -384,7 +387,7 @@
         window.onmouseup = function(event) {
           mouseDown = false;
         }
-        window.onmousedown = function(event) {
+        canvas.onmousedown = function(event) {
           lastScreenX = event.screenX;
           lastScreenY = event.screenY;
           mouseDown = true;
@@ -409,6 +412,11 @@
           else if(event.code == "Space"){
             if(animationSpeed == 0.0) animationSpeed = framesPerSecond;
             else if(animationSpeed == framesPerSecond) animationSpeed = 0.0;
+          }
+          else if(event.code == "KeyR"){
+            radius = $INSERT_RADIUS_HERE;
+            theta = $INSERT_THETA_HERE;
+            phi = $INSERT_PHI_HERE;
           }
         }
         window.onkeyup = function(event){
