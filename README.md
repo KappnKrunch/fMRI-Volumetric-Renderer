@@ -15,7 +15,6 @@ pip install fMRI-Volumetric-Renderer
 Display volume from file
 ```python
 import nibabel as nib
-import torch
 
 from volume_plot_utils import plotter
 
@@ -23,7 +22,7 @@ from volume_plot_utils import plotter
 brainData = nib.load("data/sub-0x/func/subject-data-file.nii.gz")
 
 #load the nifti data into a pytorch tensor
-activationSequence = torch.tensor(brainData.get_fdata().T)
+activationSequence = brainData.get_fdata().T
 
 #use the displayVolume function to display the volumetric data in ipynb
 plotter.displayVolume(activationSequence)
