@@ -15,7 +15,7 @@ pip install fMRI-Volumetric-Renderer
 Display volume from file
 ```python
 import nibabel as nib
-
+import numpy as np
 from volume_plot_utils import plotter
 
 #load an example nifti file
