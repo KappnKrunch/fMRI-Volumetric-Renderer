@@ -12,7 +12,8 @@ Get the package from the pip repository using the python pip command
 ```console
 pip install fMRI-Volumetric-Renderer
 ```
-Display volume from file
+Basic usage involves nibabel to unpack a fmri volume into a tensor  
+From there you can manipulate the data or pass it raw into the renderer
 ```python
 import nibabel as nib
 import numpy as np
